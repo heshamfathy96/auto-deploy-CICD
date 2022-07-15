@@ -3,11 +3,16 @@
   file:
     path: ~/backend_app
     state: directory
-    
-- name: "Unarchive backend files"
-  unarchive:
-    src: artifact.tar.gz
-    dest: ~/backend-app
+
+- name: "Unzip backend files to correct directory"
+  shell: |
+    cd ~/backend_app
+    unzip dist.zip
+    rm -rf dist.zip    
+#- name: "Unarchive backend files"
+ # unarchive:
+  #  src: artifact.tar.gz
+   # dest: ~/backend-app
 
 - name: "Install dependencies for project"
   shell: |
@@ -19,6 +24,8 @@
     cd ~/backend_app/dist
     pm2 stop default
     pm2 start main.js
+
+
   register: execute_node
 
 - name: print message
