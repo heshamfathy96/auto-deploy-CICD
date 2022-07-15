@@ -217,8 +217,7 @@ jobs:
     docker:
       - image: sleavely/node-awscli:14.x
     steps:
-      - checkout
-      - install_awscli
+      - checkout      
       - run:
           name: Run migrations
           command: |           
