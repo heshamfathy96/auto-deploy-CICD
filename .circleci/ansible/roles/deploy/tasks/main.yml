@@ -9,10 +9,6 @@
     cd ~/backend_app
     unzip dist.zip
     rm -rf dist.zip    
-#- name: "Unarchive backend files"
- # unarchive:
-  #  src: artifact.tar.gz
-   # dest: ~/backend-app
 
 - name: "Install dependencies for project"
   shell: |
