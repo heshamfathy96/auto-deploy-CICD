@@ -4,11 +4,11 @@
     path: ~/backend_app
     state: directory
 
-- name: "Unzip backend files to correct directory"
-  shell: |
-    cd ~/backend_app
-    unzip dist.zip
-    rm -rf dist.zip    
+- name: "UnArchive"
+  unarchive:
+    src: artifact.tar.gz
+    dest: ~/backend-app
+       
 
 - name: "Install dependencies for project"
   shell: |
