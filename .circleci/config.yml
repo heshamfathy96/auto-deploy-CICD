@@ -269,8 +269,7 @@ jobs:
           name: Deploy frontend objects
           command: |
             cd frontend          
-            npm run build
-           # small changed happend that i have remove double quotes 
+            npm run build           
             aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive 
       - destroy-environment
       - revert-migrations
