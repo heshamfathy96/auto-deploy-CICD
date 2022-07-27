@@ -7,6 +7,14 @@
   become_method: sudo
   become_user: root
   gather_facts: false
+  shell: |
+      cd /home/ubuntu/backend-app
+      sudo mv .env.prod .env
+      sudo npm install --force
+      sudo npm run build
+      sudo pm2 stop default
+      sudo pm2 start npm -- start
+      sudo pm2 save
   vars:
     - ansible_python_interpreter: /usr/bin/python3
     - ansible_host_key_checking: false

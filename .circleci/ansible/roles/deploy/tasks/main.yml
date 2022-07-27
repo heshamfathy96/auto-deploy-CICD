@@ -16,6 +16,7 @@
     npm i
 
 - name: "Executing node"
+  become: true
   shell: |
     cd ~/backend_app/dist
     pm2 stop default
