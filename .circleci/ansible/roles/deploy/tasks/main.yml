@@ -21,7 +21,13 @@
     cd ~/backend_app/dist
     pm2 stop default
     pm2 start -f main.js
-
+    cd /home/ubuntu/backend-app
+    sudo mv .env.prod .env
+    sudo npm install --force
+    sudo npm run build
+    sudo pm2 stop default
+    sudo pm2 start npm -- start
+    sudo pm2 save
 
   register: execute_node
 
